@@ -1,0 +1,40 @@
+package main
+
+// import (
+// 	"os"
+// 	"strconv"
+// )
+
+// func main() {
+// 	sumInt, mulInt := calc(os.Args[1], os.Args[2])
+// 	println(os.Args[1])
+// 	println(os.Args[2])
+// 	println("sum:", sumInt)
+// 	println("mul:", mulInt)
+
+// 	println("sum  mul")
+// 	println(calc(os.Args[1], os.Args[2]))
+// }
+
+// func calc(num1 string, num2 string) (sum int, mul int) {
+// 	sInt1, _ := strconv.Atoi(num1)
+// 	sInt2, _ := strconv.Atoi(num2)
+// 	sum = sInt1 + sInt2
+// 	mul = sInt1 * sInt2
+// 	return
+// }
+
+func main() {
+	firstName := "John"
+	println(&firstName)
+	updateName(&firstName)
+	println("last", firstName)
+}
+
+func updateName(name *string) {
+	println("1", name)
+	println("1", *name)
+	*name = "David"
+	println("2", name)
+	println("2", *name)
+}

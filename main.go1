@@ -1,0 +1,162 @@
+package main
+
+import (
+	"fmt"
+	"math"
+	"strconv"
+)
+
+// func main() {
+//  fmt.Println("Hello world!")
+// }
+
+// 变量定义两种方式：
+// 一种方式如下，逐行定义，
+
+// var firstName, lastName string
+// var age int
+
+// func printVar()
+//     firstName = "nash"
+//     lastName="yang"
+//     age=31
+//     Println(firstName, lastName, age)
+// }
+
+// 第二种方式，使用代码块定义，效果同第一种方式：
+
+// var (
+//  firstName2, lastName2 string
+//  age2                  int
+// )
+
+// func printVar2() {
+//  fmt.Println(firstName2, lastName2, age2)
+// }
+
+// 变量赋值，可在变量定义时即赋初始值
+var (
+	firstName3 string = "nash"
+	lastName3  string = "yang"
+	age3       int    = 30
+)
+
+func printVar3() {
+	println(firstName3, lastName3, age3)
+}
+
+// 赋值初始化变量时，也可不用声明变量类型，Go根据值自动推断。
+var (
+	firstName4 = "nash"
+	lastName4  = "yang"
+	age4       = 30
+)
+
+func printVar4() {
+	println(firstName4, lastName4, age4)
+}
+
+// Go自行推断出 firstName4 和 lastName4 类型为 string ， 且 age 属于 init 类型。
+
+// 还有其它多种方式初始化变量
+// 在单行中声明和初始化多个变量，使用 , 号将变量和值分开，每个值按顺序对应变量复制：
+var (
+	firstName5, lastName5, age5 = "nash", "yang", 30
+)
+
+func printVar5() {
+	println(firstName5, lastName5, age5)
+}
+
+// 还可以通过 := 冒号等于号组合的方式进行短变量声明。
+// 短变量声明必须声明的是新变量，否则语句不会编译执行。
+// 且短变量声明的为局部变量，作用域只在当前 Block 块中，
+// 参考 Python 中的 global 和 local 变量声明
+
+func printVar6() {
+	firstName6, lastName6 := "nash", "yang"
+	age6 := 30
+	println(firstName6, lastName6, age6)
+}
+
+// 若声明了变量却未使用，Go 会报错：declared but not used
+// 在 Go 中，声明的每个变量，必须在某处使用。
+
+// 声明常量
+
+const HTTPStatusOK = 200
+
+// 与变量声明一样，常量声明可用块方式
+
+const (
+	StatusOK              = 0
+	StatusConnectionReset = 1
+	StatusOtherError      = 2
+)
+
+// 与变量不同，声明的常量可以未被使用而不报错，也不可通过 := 短声明写法声明。
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+func main() {
+	fmt.Println("Hello world!")
+	printVar3()
+	printVar4()
+	printVar5()
+	printVar6()
+	println("---------------------------------------\n\n\n\n")
+
+	// var integer32 int = 2147483648
+	// println(integer32)
+
+	// var integer64 int64 = 9223372036854775807
+	// println(integer64)
+
+	var uniteger uint = 10
+	println(uniteger)
+
+	println("----------------------------------------\n\n\n")
+
+	var varFloat32 float32 = 2147483647
+	var varFloat64 float64 = 9223372036854775807
+	println(varFloat32, varFloat64)
+
+	println("\n", math.MaxFloat32, math.MaxFloat64)
+
+	var duStr string = "dustr"
+	var sinStr string = "S"
+	println(duStr, "\n", sinStr)
+
+	var defaultInt int
+	var defaultFloat32 float32
+	var defaultFloat64 float64
+	var defaultBool bool
+	var defaultString string
+	println("\n", defaultInt, defaultBool, defaultFloat32, defaultFloat64, defaultString)
+
+	var integer16 int16 = 127
+	var integer32 int32 = 32767
+	println(int32(integer16) + integer32)
+
+	println("\n")
+
+	i, _ := strconv.Atoi("-42")
+	s := strconv.Itoa(-42)
+	println(i, s)
+
+
+}
