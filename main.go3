@@ -1,0 +1,28 @@
+package main
+
+import (
+	"os"
+	"strconv"
+
+	"rsc.io/quote"
+	"tenyunops.com/nashyang/calculator"
+)
+
+func main() {
+	println(calculator.Sum(3, 5))
+	println("Version: ", calculator.Version)
+	println(quote.Hello())
+
+	number1, _ := strconv.Atoi(os.Args[1])
+	number2, _ := strconv.Atoi(os.Args[2])
+	println("Sum:", number1+number2)
+
+	firstName := "John"
+	updateName(&firstName)
+	println("firstName:", firstName)
+}
+func updateName(name *string) {
+	println("func_name =", name)
+	println("func_*name = ", *name)
+	*name = "David"
+}
